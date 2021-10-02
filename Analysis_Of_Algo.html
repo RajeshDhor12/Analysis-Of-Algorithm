@@ -5,40 +5,97 @@
 	<title>Analysis of Algorithm</title>
 </head>
 <body>
-<h1>Analysis of Algorithm :</h1>
-<h2>Best, Worst, Expected Case :</h2>
-<p>Sometimes we get lucky in life. Exam cancelled when you were not prepared,surprise test when you were prepared etc. =&gt; <strong>Best Case</strong></p>
-<p>Sometimes we get unlucky.Questions you never prepared asked in exams, rain during cricket match etc. =&gt; <strong>Worst Case</strong></p>
-<hr />
-<p>Consider an array which is sorted in increasing order </p>
-<p>| 1 | 7 | 18 | 28 | 50 | 180 |</p>
-<p>we have to search a given number in this array and report whether its present in the array or not.</p>
-<h3>Algorithm 1 :</h3>
-<p>Start from first element untill an element greater than or equal to the number to be searched is found.</p>
-<h3>Algorithm 2 :</h3>
-<p>Check whether the first or the last element is equal to the  number. If not find the number between these two elements(center of the array).If the center element is greater than the number to be searched, repeat the process for first half else repeat for second half until the number is found.</p>
-<hr />
-<h2>Space Complexity :</h2>
-<p>Time is not the only thing we worry about while analyzing algorithms. Space is equally important.</p>
-<blockquote>
-<p>Greating an array of size n -&gt; O(n) space......n is the size of input</p>
-</blockquote>
-<p>If a function calls itself recursively n times its space complexity is O(n).</p>
-<hr />
-<h2>Techniques to Calculate Time Complexity :</h2>
-<p>Once we are able to write the runtime in terms of size of the <strong>input(n)</strong>, we can find the time complexity.</p>
-<p>For example,</p>
-<blockquote>
-<p>T(n) = n2 = O(n2)</p>
-<p>T(n) = log n = O(log n)</p>
-</blockquote>
-<hr />
-<h3>Some tricks to calculate complexity :</h3>
-<ul>
-<li>Drop the constants</li>
-<li>Drop the non dominant terms</li>
-<li>Consider all variables which are provided as input.</li>
-</ul>
-
+	<h1>Analysis of Algorithm :</h1>
+	<h2>Best, Worst, Expected Case :</h2>
+	<p>Sometimes we get lucky in life. Exam cancelled when you were not prepared,surprise test when you were prepared etc. =&gt; <strong>Best Case</strong></p>
+	<p>Sometimes we get unlucky.Questions you never prepared asked in exams, rain during cricket match etc. =&gt; <strong>Worst Case</strong></p>
+	<p>But overall the life remains balance with the mixture of lucky and unlucky times. =&gt; <strong>Expected Case</strong></p>
+	<hr />
+	<p>Consider an array which is sorted in increasing order </p>
+	<p>| 1 | 7 | 18 | 28 | 50 | 180 |</p>
+	<p>we have to search a given number in this array and report whether its present in the array or not.</p>
+	<h3>Algorithm 1 :</h3>
+	<p>Start from first element untill an element greater than or equal to the number to be searched is found.</p>
+	<h3>Algorithm 2 :</h3>
+	<p>Check whether the first or the last element is equal to the  number. If not find the number between these two elements(center of the array).If the center element is greater than the number to be searched, repeat the process for first half else repeat for second half until the number is found.</p>
+	<hr />
+	<h2>Analyzing Algo 1 :</h2>
+	<p>If we really get lucky, the first element of the array might turn out to be the element we are searching for. Hence we made just one comparison.</p>
+	<blockquote>
+	<p>Best Case Complexity = O(1)</p>
+	</blockquote>
+	<p>If we are really unlucky, the element we are searching for might be the last one.</p>
+	<blockquote>
+	<p>Worst Case Complexity = O(n)</p>
+	</blockquote>
+	<p>For calculating average case time, we sum the list of all the possible cases rumtime and divide it with the total number of cases.</p>
+	<blockquote>
+	<p>Sometimes calculation of average case time gets very complicated.</p>
+	</blockquote>
+	<hr />
+	<h2>Analyzing Algo 2 :</h2>
+	<p>If we get really lucky,the first element will be the only one which gets compared.</p>
+	<blockquote>
+	<p>Best Case Comlexity = O(log n)</p>
+	</blockquote>
+	<p>If we get really unlucky, we will have to keep dividing the array into halves until we get a single element(the array gets finished).</p>
+	<blockquote>
+	<p>Worst Case Complexity = O(log n)</p>
+	</blockquote>
+	<hr />
+	<blockquote>
+	<p>What log(n)? What is that</p>
+	<blockquote>
+	<blockquote>
+	<p>log(n) =&gt; Number of times you need to half the array of size n before it gets exhausted.</p>
+	</blockquote>
+	</blockquote>
+	</blockquote>
+	<p>Log n simply means how many time I need to divide n units such that we can't divide them anymore.</p>
+	<hr />
+	<h2>Space Complexity :</h2>
+	<p>Time is not the only thing we worry about while analyzing algorithms. Space is equally important.</p>
+	<blockquote>
+	<p>Greating an array of size n -&gt; O(n) space......n is the size of input</p>
+	</blockquote>
+	<p>If a function calls itself recursively n times its space complexity is O(n).</p>
+	<hr />
+	<blockquote>
+	<p>Why can't we calculate complexity in seconds?</p>
+	<blockquote>
+	<p>Not everyone's computer is equally powerful.</p>
+	<p>Asymptotic analysis is the measure of how time(runtime) grows with input.</p>
+	</blockquote>
+	</blockquote>
+	<hr />
+	<h2>Techniques to Calculate Time Complexity :</h2>
+	<p>Once we are able to write the runtime in terms of size of the <strong>input(n)</strong>, we can find the time complexity.</p>
+	<p>For example,</p>
+	<blockquote>
+	<p>T(n) = n2 = O(n2)</p>
+	<p>T(n) = log n = O(log n)</p>
+	</blockquote>
+	<hr />
+	<h3>Some tricks to calculate complexity :</h3>
+	<ul>
+	<li>Drop the constants</li>
+	<li>Drop the non dominant terms</li>
+	<li>
+	<p>Consider all variables which are provided as input.</p>
+	</li>
+	<li>
+	<p><strong>Drop the constants</strong> : Any thing you might think is 0(3n) is O(n)</p>
+	</li>
+	<li>
+	<p><strong>Drop the non dominant terms</strong> : Anything you represent as O(n2+n) can be written as O(n2).</p>
+	</li>
+	<li>
+	<p><strong>Consider all variables which are provided as input</strong> : O(mn) &amp; O(mnq) might exist fo some cases!</p>
+	</li>
+	</ul>
+	<p>In most cases, we try to represent the runtime in terms of the input which can be more than one in number.</p>
+	<p>For example --
+	Painting a park of dimension m x n = O(mn)</p>
+	
 </body>
 </html>
